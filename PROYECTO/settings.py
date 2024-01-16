@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'PROYECTO.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'proyecto',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost', # Puede ser una dirección IP o un nombre de host
-        'PORT': '', # Deja en blanco para usar el puerto predeterminado (5432)
+        'NAME': 'taskmasterpro',
+        'USER': 'taskmasterpro_user',
+        'PASSWORD': 'nq1jS2yJgPZiUCUN8lLqzBtk6F0gcYGa',
+        'HOST': 'oregon-postgres.render.com', # Puede ser una dirección IP o un nombre de host
+        'PORT': '5432', # Deja en blanco para usar el puerto predeterminado (5432)
     }
 }
 
