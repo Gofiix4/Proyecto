@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Xtreme Admin Lite Template by WrapPixel</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/xtreme-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon.png'%}">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.min.css'%}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'%}"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'%}"></script>
+<![endif]-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        
+                        
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{% url 'index'%}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                class="hide-menu">Actividades</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{% url 'task'%}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                    class="hide-menu">Registrar actividad</span></a></li>
+                                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{% url 'task'%}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                            class="hide-menu">Registrar actividad</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{% url 'logout' %}" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
+                                    class="hide-menu">Cerrar sesion</span></a></li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Creación de tareas</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <!--Div para actualizar datos-->
+                        <div class="card" id="updDatos">
+                            <div class="card-body">
+                                <div align="center" style="background-color: {{ color }}; color:white;">{{ mensaje }}</div>
+                                <br>
+                                <form class="form-horizontal form-material mx-2" method="POST">
+                                    {% csrf_token%}
+                                    <div class="form-group">
+                                        <label class="col-md-12">Titulo</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Ingresa el titulo" 
+                                                id="titulo" name="titulo"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Descripción</label>
+                                        <div class="col-md-12">
+                                            <textarea type="text" placeholder="Ingresa la descripción"
+                                                id="descripcion" name="descripcion"
+                                                class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Fecha y hora de inicio</label>
+                                        <div class="col-md-12">
+                                            <input type="date" placeholder="Ingresa la fecha de inicio"
+                                                id="fecha_inicio" name="fecha_inicio"
+                                                class="form-control fecha_hora form-control-line">
+                                            <input type="time" placeholder="Ingresa la hora de inicio"
+                                                id="hora_inicio" name="hora_inicio"
+                                                class="form-control fecha_hora form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Fecha y hora de termino</label>
+                                        <div class="col-md-12">
+                                            <input type="date" placeholder="Ingresa la fecha de termino"
+                                                id="fecha_termino" name="fecha_termino"
+                                                class="form-control fecha_hora form-control-line">
+                                            <input type="time" placeholder="Ingresa la hora de termino"
+                                                id="hora_termino" name="hora_termino"
+                                                class="form-control fecha_hora form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Status</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-select shadow-none form-control-line" id="status" name="status">
+                                                {% for onestatus in status %}
+                                                <option value="{{ onestatus.idStatus }}">{{ onestatus.Status }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Prioridad</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-select shadow-none form-control-line" id="prioridad" name="prioridad">
+                                                {% for oneprioridad in prioridad %}
+                                                <option value="{{ oneprioridad.idPrioridad }}">{{ oneprioridad.Prioridad }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="{{ password }}" placeholder="Ingresa tu contraseña"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Message</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Select Country</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-select shadow-none form-control-line">
+                                                <option>London</option>
+                                                <option>India</option>
+                                                <option>Usa</option>
+                                                <option>Canada</option>
+                                                <option>Thailand</option>
+                                            </select>
+                                        </div>
+                                    </div>-->
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-info text-white" name="formAdd" id="formAdd">Agregar tarea</button>
+                                        </div>
+                                    </div>
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Xtreme Admin. Designed and Developed by <a
+                    href="https://www.wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Coloca este script al final de tu archivo HTML, justo antes de cerrar el cuerpo </body> -->
+<!-- Coloca este script al final de tu archivo HTML, justo antes de cerrar el cuerpo </body> -->
+
+    <script>
+        // Espera a que el documento esté completamente cargado
+        document.addEventListener("DOMContentLoaded", function() {
+            // Encuentra el botón por su ID
+            var btnUpdatePwd = document.getElementById("btnUpdatePwd");
+
+            // Agrega un evento de clic al botón
+            btnUpdatePwd.addEventListener("click", function() {
+                // Redirige a la nueva vista (reemplaza 'nueva_vista' con la URL de tu vista)
+                window.location.href = "/updatePwd/";
+            });
+        });
+    </script>
+
+
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/app-style-switcher.js'%}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js'%}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'js/sidebarmenu.js'%}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'js/custom.js'%}"></script>
+</body>
+
+</html>
